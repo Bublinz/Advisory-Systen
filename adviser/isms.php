@@ -103,10 +103,13 @@
                   elseif ($show !=""){
                     // Iteration logic
                       foreach($show as $r){
-                          
+                        // <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'>       
                           echo " 
                           <div class='incoming_msg'>
-            <div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='sunil'> </div>
+            <div class='incoming_msg_img'> 
+            <i class='fa fa-spinner fa-spin'></i>
+            
+            </div>
               <div class='received_msg'>
               <input type='hidden' value='$r->std_id' name='std_id'>
                 <div class='received_withd_msg'>

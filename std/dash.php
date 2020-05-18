@@ -51,7 +51,12 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
               <div class="wrapper count-title d-flex">
                 <div class="icon"><i class="icon-padnote"></i></div>
                 <div class="name"><strong class="text-uppercase">Total Personal</strong><span>Messages</span>
-                  <?php $percount=counts("$s personal_feed $w msg_status='1' ");?>
+                  <?php 
+                  $my_did =$_SESSION['id'];
+                  
+                  $percount=counts("$s personal_feed $w msg_status='1' && std_id ='$my_did' ");
+                  // echo $my_did;
+                  ?>
                   <div class="count-number"><?php echo "$percount";?></div>
                 </div>
               </div>
@@ -262,7 +267,9 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                 <div id="feeds-header" class="card-header d-flex justify-content-between align-items-center">
                   <h2 class="h5 display"><a data-toggle="collapse" data-parent="#daily-feeds" href="#feeds-box" aria-expanded="true" aria-controls="feeds-box">Personal Advice Feed </a></h2>
                   <div class="right-column">
-                    <?php  $percount1 = counts("$s personal_feed $w std_read_status='0' and msg_status='1'");?>
+                    <?php 
+                    $my_did =$_SESSION['id'];
+                     $percount1 = counts("$s personal_feed $w std_read_status='0' and msg_status='1' and std_id='$my_did' ");?>
                     <div class="badge badge-primary">  <?php echo"$percount1";?> Unread SMS</div><a data-toggle="collapse" data-parent="#daily-feeds" href="#feeds-box" aria-expanded="true" aria-controls="feeds-box"><i class="fa fa-angle-down"></i></a>
                   </div>
                 </div>
@@ -273,7 +280,8 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                       <!-- List-->
 
                       <?php 
-                      $perfeed = fetch("$s personal_feed $w std_read_status='0' and msg_status='1' order by msg_id desc");
+                       $my_did =$_SESSION['id']; 
+                      $perfeed = fetch("$s personal_feed $w std_read_status='0' and msg_status='1' and std_id='$my_did' order by msg_id desc");
                       if($perfeed<=0){
                         echo" <div  class='card-header d-flex justify-content-between align-items-center'>
                   <center><h2 class='h5 display'>You Have no personal Message !</h2></center>

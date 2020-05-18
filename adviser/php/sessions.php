@@ -5,5 +5,5 @@ $id = @$_SESSION['id'];
 	if(isset($id)){ 
 		//nothing happens 
 	} else { 
-		to("../../login.php"); 
+		to("../../index.php"); 
 	}

@@ -21,6 +21,27 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/charts-home.js"></script>
+    <script>
+function chargebattery() {
+  var a;
+  a = document.getElementById("charging");
+  a.innerHTML = "&#xf244;";
+  setTimeout(function () {
+    a.innerHTML = "&#xf243;";
+  }, 1000);
+  setTimeout(function () {
+    a.innerHTML = "&#xf242;";
+  }, 2000);
+  setTimeout(function () {
+    a.innerHTML = "&#xf241;";
+  }, 3000);
+  setTimeout(function () {
+    a.innerHTML = "&#xf240;";
+  }, 4000);
+}
+chargebattery();
+setInterval(chargebattery, 5000);
+</script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

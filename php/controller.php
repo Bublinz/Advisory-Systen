@@ -7,26 +7,30 @@ require_once "database.php";
 if(isset($_POST['login'])){
 	$user = filters('username');
 	$pass = filters('password');  
-	$mentor = filters ('mentor');
+	// $adviser = filters ('adviser');
 
 
-if($mentor =='1'){
+	$adviser = false;
+if(isset($_POST['adviser'])){
+	$adviser = true;
+}
+if($adviser){
 $login = counts("$s adviser $w username='$user' and password ='$pass' and role='2' and status='1'") ;
 
-$login1 = counts("$s user $w username='$user' and password ='$pass' and role='1' and status='1'") ;
+// $login1 = counts("$s user $w username='$user' and password ='$pass' and role='1' and status='1'") ;
 
-//Admin Login Logic
-	if($login1 > 0){ 
-		$id = get("user_id","$s user $w username ='$user' and password ='$pass'");  
-		$role = get("role","$s user $w username ='$user' and password ='$pass'");  
-		$_SESSION['id'] = $id;
-		$_SESSION['role'] = $role;
-		to('admin/index.php');
-	}
+// //Admin Login Logic
+// 	if($login1 > 0){ 
+// 		$id = get("user_id","$s user $w username ='$user' and password ='$pass'");  
+// 		$role = get("role","$s user $w username ='$user' and password ='$pass'");  
+// 		$_SESSION['id'] = $id;
+// 		$_SESSION['role'] = $role;
+// 		to('admin/index.php');
+// 	}
 
 	// Adviser login logic
 
-	elseif($login > 0){
+	if($login > 0){
 		$id = get("adviser_id","$s adviser $w username ='$user' and password ='$pass'");  
 		$role = get("role","$s adviser $w username ='$user' and password ='$pass'");  
 		$_SESSION['id'] = $id;
@@ -36,7 +40,10 @@ $login1 = counts("$s user $w username='$user' and password ='$pass' and role='1'
 	} 
 
 	else { 
+	 
 		$error1 = "Wrong Login Details as Adviser !";
+                        
+		
 	}
 	
 }
@@ -63,8 +70,9 @@ if(isset($_POST['register_student'])){
 	$reg_no = filters('reg_no');
 	$surname = filters('surname');
 	$othernames = filters('othernames');
-	$section = filters('section');
+	$admission_year = filters('admission_year');
 	$email = filters('email');
+	$admissionMode = filters('admissionMode');
 	$phone = filters('phone');
     $password1 = filters('password1');
     $password2 = filters('password2');
@@ -86,13 +94,17 @@ if(isset($_POST['register_student'])){
  if ($password1==$password2) {
  
 $search1 = counts("SELECT * FROM students_data WHERE status='1' AND (reg_no='$reg_no' OR email='$email')");
-     if($search1 >= 1){
+     if($search1 > 0){
             		$error1 = "User account Exist!!!";
      }
-   elseif(udi("$i students_data values('','$surname','$othernames','$reg_no','','$phone','','','','','$email','','','','$section','$password1','3','1')")){
+   elseif(udi("$i students_data values('','$surname','$othernames','','$reg_no','','$phone','','','','','$email','','','','$admission_year','$admissionMode','$password1','','3','1')"))
+   {
    	$success="Account created Sucessfully!!!";
    }
-   else{$error = "Sorry, Something went wrong!!!";}
+   else{
+	 $error1 = "Sorry, Something went wrong!!!";
+	//echo("Error description: " . $conn -> error);
+	}
 
  }else{
  	$error1 ="Password do not March!!!";

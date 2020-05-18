@@ -2,7 +2,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>Department of Computer Science &copy; 2019</p>
+              <p>Department of Computer Science &copy; 2020</p>
             </div>
             <div class="col-sm-6 text-right">
               <!-- <p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dashboard" class="external">Joseph Peter Kelechukwu</a></p> -->
