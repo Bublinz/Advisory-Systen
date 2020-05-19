@@ -30,7 +30,30 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
 	} 
 }
   ?>
+    <!-- Adviser selection messages -->
 
+    <?php
+                                $checkerror = @has($error1);
+                                if ($checkerror ==""){
+                                echo @has($error1);
+                                }
+                                else{
+                                    echo '<div class="alert alert-danger" role="alert">'; 
+                                    echo @has($error1);
+                                    echo '</div>';
+                                }
+                                ?>
+                                 <?php
+                                $checksuccess = @has($success);
+                                if ($checksuccess ==""){
+                                echo @has($success);
+                                }
+                                else{
+                                    echo '<div class="alert alert-success" role="alert">'; 
+                                    echo @has($success);
+                                    echo '</div>';
+                                }
+                                ?>
   
  
       <!-- Counts Section -->
@@ -47,7 +70,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
               </div>
             </div> -->
 
-
+          
             <!-- Select Adviser -->
 
             <?php 
@@ -66,7 +89,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                             //             global $conn;
                                 $query= "SELECT adviser_id, name FROM adviser WHERE status='1'AND role = '2' ";
 
-                                    echo  "<select class=form-control name=add_adviser required>";
+                                    echo  "<select class=form-control name=adviser_id required>";
                                     echo "<option value=''></option>";
                                     foreach ($conn->query($query) as $row) {
                                        echo "<option value=$row[adviser_id]>$row[name] </option>";
@@ -79,8 +102,8 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                          <input type="hidden" name="std_id" value="<?php echo get("std_id","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" >
 
                            <?php
-                          echo '<button type="select_adviser" name="Confirm" class="btn btn-primary submit mb-4">
-                                Sign In</button> </div></div></form>
+                          echo '<button type="submit" name="confirm" class="btn btn-primary submit mb-4">
+                                Confirm </button> </div></div></form>
                            </p>
             </div>
             </div></center>';

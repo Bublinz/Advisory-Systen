@@ -26,7 +26,8 @@
         if ($admode =="DE"){
           $level = $checklevel + 1;
         }else{
-          $level = $checklevel;
+         global  $level;
+         $level = $checklevel;
         }
         ?>
         <div class="main-menu">
@@ -42,8 +43,15 @@
                 <li><a href="#">Page</a></li>
                 <li><a href="#">Success Story</a></li> -->
             
-            
-            <li><a href="it.php"> <i class="icon-interface-windows"></i>Industrial Training </a></li>
+            <?php  
+           
+            if ($level == "4"){
+
+              echo ' <li><a href="it.php"> <i class="icon-interface-windows"></i>Industrial Training </a></li>
+              ';
+            }
+            ?>
+            <!-- <li><a href="it.php"> <i class="icon-interface-windows"></i>Industrial Training </a></li> -->
             <li> <a href="reminder.php"> <i class="icon-mail"></i>Reminders 
             <i class="fa fa-spinner fa-spin"></i>
             

@@ -20,6 +20,31 @@ if(isset($_POST['send_message'])){
 
 }
  
+//Adviser selection
+if(isset($_POST['confirm'])){
+	$std_id = filters('std_id');
+	$adviser_id = filters('adviser_id'); 
+	//$message = filters('message');
+	//$date = filters('date');
+	//$status = filters('status');
+
+	$checks = counts("SELECT * FROM adviser_std WHERE as_std_id ='$std_id' AND as_status='1'");
+
+	if ($checks > 0){
+		$error1="Please contact your class Adviser";
+
+	}else{
+
+		if(udi("$i adviser_std values('','$std_id','$adviser_id','1')")){
+	    	$success="Successful !!!";
+	    } else { 
+	    	$error1="You are the admin";
+		}  
+		
+			
+	}
+
+}
 
 
 //Assign a course score to student
