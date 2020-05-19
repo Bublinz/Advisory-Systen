@@ -44,74 +44,74 @@
 
         <div class="sp-slides">
             <div class="sp-slide">
-                <img class="sp-image" src="images/blank.gif" data-src="images/banner1.jpg" alt=" " data-retina="images/banner1.jpg" />
+                <img class="sp-image" src="images/banner4.jpg" data-src="images/banner4.jpg" alt=" " data-retina="images/banner4.jpg" />
 
                 <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">
-                    Course Advisory System
-                </h3>
-
-                <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"
-                    data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
-                    Connecting digital experiences uniquely 
-                </p>
-            </div>
-
-            <div class="sp-slide">
-                <img class="sp-image" src="images/blank.gif" data-src="images/banner3.jpg" alt=" " data-retina="images/banner3.jpg" />
-
-                <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">
-                    Better communication ensured
-                </h3>
-
-                <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"
-                    data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
-                    In a unique digital concept
-                </p>
-
-                
-            </div>
-            <div class="sp-slide">
-                <img class="sp-image" src="images/blank.gif" data-src="images/banner4.jpg" alt=" " data-retina="images/banner4.jpg" />
-
-                <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">
-                   Be upto date with Dept. Activities
-                </h3>
-
-                <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"
-                    data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
-                    With the quick reminder
-                </p>
-
-               
-            </div>
-            <div class="sp-slide">
-                <img class="sp-image" src="images/blank.gif" data-src="images/banner5.jpg" alt=" " data-retina="images/banner5.jpg" />
-
-                <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">
-                    Keeping track on the go
-                </h3>
-
-                <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"
-                    data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
-                    Consistency yields results
-                </p>
-
-               
-            </div>
-            <div class="sp-slide">
-                <img class="sp-image" src="images/blank.gif" data-src="images/banner2.jpg" alt=" " data-retina="images/banner2.jpg" />
-
-                <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">
-                    Automated work load
+                    Automated work-load
                 </h3>
 
                 <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"
                     data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
                     Creating flexibility to work
                 </p>
+            </div>
+
+            <!--<div class="sp-slide">-->
+            <!--    <img class="sp-image" src="images/blank.gif" data-src="images/banner3.jpg" alt=" " data-retina="images/banner3.jpg" />-->
+
+            <!--    <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">-->
+            <!--        Better communication ensured-->
+            <!--    </h3>-->
+
+            <!--    <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"-->
+            <!--        data-show-delay="200" data-hide-transition="left" data-hide-delay="200">-->
+            <!--        In a unique digital concept-->
+            <!--    </p>-->
 
                 
-            </div>
+            <!--</div>-->
+            <!--<div class="sp-slide">-->
+            <!--    <img class="sp-image" src="images/blank.gif" data-src="images/banner4.jpg" alt=" " data-retina="images/banner4.jpg" />-->
+
+            <!--    <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">-->
+            <!--       Be upto date with Dept. Activities-->
+            <!--    </h3>-->
+
+            <!--    <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"-->
+            <!--        data-show-delay="200" data-hide-transition="left" data-hide-delay="200">-->
+            <!--        With the quick reminder-->
+            <!--    </p>-->
+
+               
+            <!--</div>-->
+            <!--<div class="sp-slide">-->
+            <!--    <img class="sp-image" src="images/blank.gif" data-src="images/banner5.jpg" alt=" " data-retina="images/banner5.jpg" />-->
+
+            <!--    <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">-->
+            <!--        Keeping track on the go-->
+            <!--    </h3>-->
+
+            <!--    <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"-->
+            <!--        data-show-delay="200" data-hide-transition="left" data-hide-delay="200">-->
+            <!--        Consistency yields results-->
+            <!--    </p>-->
+
+               
+            <!--</div>-->
+            <!--<div class="sp-slide">-->
+            <!--    <img class="sp-image" src="images/blank.gif" data-src="images/banner1.jpg" alt=" " data-retina="images/banner1.jpg" />-->
+
+            <!--    <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="10%" data-show-transition="left" data-hide-transition="left">-->
+            <!--        Automated work load-->
+            <!--    </h3>-->
+
+            <!--    <p class="sp-layer sp-white sp-padding hide-medium-screen" data-horizontal="40" data-vertical="22%" data-show-transition="left"-->
+            <!--        data-show-delay="200" data-hide-transition="left" data-hide-delay="200">-->
+            <!--        Creating flexibility to work-->
+            <!--    </p>-->
+
+                
+            <!--</div>-->
 
         </div>
 
@@ -150,10 +150,8 @@
             </h1>
             <div class="top-btns">
                 <div class="sign-btn">
-                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-                        <i class="fas fa-lock"></i> Get Started</a>
-
-                         
+                   
+                          
                                 <?php
                                 $checkerror = @has($error1);
                                 if ($checkerror ==""){
@@ -181,7 +179,7 @@
                 
             </div>
          
-
+           
         
         </div>
     </div>
@@ -194,7 +192,10 @@
         <div class="container">
             <div class="inner-sec-wthree-w3ls py-md-5 py-4">
                 <h3 class="tittle-w3l text-center mb-lg-5 mb-3">
-                    <span>Welcome</span>Course Advisory System </h3>
+                    <span>
+                         <a href="#" data-toggle="modal"  class="btn btn-sm animated-button victoria-two"  data-target="#exampleModalCenter">
+                         Get Started</a></span>
+                         Class Advisory System </h3>
                 <div class="row choose-main ">
                     <div class="col-lg-6 galsses-grid-right">
                         <h5>
@@ -273,7 +274,7 @@
 
                     <div class="login px-4 mx-auto mw-100">
                         <h5 class="text-center mb-4">Login Now</h5>
-                        <form action="#" method="post">
+                        <form  method="post">
                                 <p style="text-align:center">Enter your login details. Please check the box if you are an Adviser</p>
                             <div class="form-group">
                                    
@@ -326,7 +327,7 @@
                 <div class="modal-body">
                     <div class="login px-4 mx-auto mw-100">
                         <h5 class="text-center mb-4">Register Now</h5>
-                        <form action="#" method="post">
+                        <form method="post">
                             <div class="form-group">
                                 <label>Last Name</label>
 
@@ -352,7 +353,7 @@
           $op;
           for($t=11;$t<=50;$t++){
             $u = $t+1;
-         $op.="<option value='20$t/20$u'>20$t/20$u</option>";
+         $op.="<option value='20$t'>20$t/20$u</option>";
           
           }
           ?>

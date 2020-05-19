@@ -14,8 +14,24 @@
           <div class="sidenav-header-logo"><a href="dash.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
+
+
+      <!-- Logic to check the Level of students by admission year and mode of admission -->
+        <?php
+        $currentyear = date("Y");
+        $adyear= get("admission_year","$s students_data $w std_id='".$_SESSION['id']."'");
+        $admode= get("admissionMode","$s students_data $w std_id='".$_SESSION['id']."'");
+        $checklevel = $currentyear - $adyear;
+
+        if ($admode =="DE"){
+          $level = $checklevel + 1;
+        }else{
+          $level = $checklevel;
+        }
+        ?>
         <div class="main-menu">
           <h5 class="sidenav-heading">Reg No:   <?php echo get("reg_no","$s students_data $w std_id='".$_SESSION['id']."'"); ?> </h5>
+          <h5 class="sidenav-heading">  <?php echo "Level: ".$level."00" ; ?> </h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="dash.php"> <i class="icon-home"></i>Home  </a></li>
             <li><a href="profile.php"> <i class="icon-form"></i>Profile</a></li>
@@ -109,7 +125,10 @@
                 </li>
              
                 <!-- Log out-->
-                <li class="nav-item"><a  href="php/test.php" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout </span> <div id="charging" class="fa"></div></a></li>
+                <li class="nav-item"><a  href="php/test.php" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout </span> <i class="fa fa-sign-out" aria-hidden="true"></i>
+                
+                 <!-- <div id="charging" class="fa"></div> -->
+                 </a></li>
               </ul>
             </div>
           </div>
