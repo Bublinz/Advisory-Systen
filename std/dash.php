@@ -46,6 +46,49 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                 </div>
               </div>
             </div> -->
+
+
+            <!-- Select Adviser -->
+
+            <?php 
+            $std_id = @$_SESSION['id'];
+            $gdetails = counts("SELECT * FROM adviser_std WHERE as_std_id ='$std_id' AND as_status='1'");
+            //echo $gdetails;
+            if ($gdetails  < 1){
+            echo '<center>
+            <div class="col-xl-12 col-md-6 col-12" >
+            <div class="wrapper count-title d-flex">
+            <p>  <form method="post">
+                            <div style="border: 2px solid green; margin: 10px; padding: 10px;">
+                              <label>Welcome: Please select your class adviser from the list</label>';
+                             
+                            //  $level= get("level","$s students $w std_id='".$_SESSION['id']."'");
+                            //             global $conn;
+                                $query= "SELECT adviser_id, name FROM adviser WHERE status='1'AND role = '2' ";
+
+                                    echo  "<select class=form-control name=add_adviser required>";
+                                    echo "<option value=''></option>";
+                                    foreach ($conn->query($query) as $row) {
+                                       echo "<option value=$row[adviser_id]>$row[name] </option>";
+                                    }                                   
+                                            
+                                       echo "</select>";
+                                        
+                                       echo '<div style="padding: 3px;">'; ?>
+
+                         <input type="hidden" name="std_id" value="<?php echo get("std_id","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" >
+
+                           <?php
+                          echo '<button type="select_adviser" name="Confirm" class="btn btn-primary submit mb-4">
+                                Sign In</button> </div></div></form>
+                           </p>
+            </div>
+            </div></center>';
+                                  }
+                                  ?>
+
+
+
             <!-- Count item widget-->
             <div class="col-xl-2 col-md-4 col-6">
               <div class="wrapper count-title d-flex">
