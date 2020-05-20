@@ -127,6 +127,19 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                 </div>
               </div>
             </div>
+             <!-- Count item widget-->
+             <div class="col-xl-2 col-md-4 col-6">
+              <div class="wrapper count-title d-flex">
+                <div class="icon"><i class="icon-bill"></i></div>
+                <div class="name"><strong class="text-uppercase">Total General </strong><span>Announcement</span>
+                  <?php 
+                  // $feedcount = counts("$s general_feed $w feed_status='1'");
+                  $feedcount =counts("SELECT a.*, gf.* FROM adviser_std AS a LEFT JOIN general_feed AS gf ON a.as_adviser_id = gf.adviser_id WHERE a.as_std_id = '".$_SESSION['id']."' AND a.as_status = '1' ");
+                  ?>
+                  <div class="count-number"><?php echo "$feedcount";?></div>
+                </div>
+              </div>
+            </div>
             <!-- Count item widget-->
             <div class="col-xl-2 col-md-4 col-6">
               <div class="wrapper count-title d-flex">
@@ -139,16 +152,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                 </div>
               </div>
             </div>
-            <!-- Count item widget-->
-            <div class="col-xl-2 col-md-4 col-6">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-bill"></i></div>
-                <div class="name"><strong class="text-uppercase">Total General </strong><span>Announcement</span>
-                  <?php $feedcount = counts("$s general_feed $w feed_status='1'");?>
-                  <div class="count-number"><?php echo "$feedcount";?></div>
-                </div>
-              </div>
-            </div>
+           
             <!-- Count item widget-->
             <div class="col-xl-2 col-md-4 col-6">
               <div class="wrapper count-title d-flex">
@@ -194,11 +198,11 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                             <div class="form-group">
                               <label>To:</label>
                               <!-- get the mysql connection for three tables -->
-                              <input type="text"  class="form-control" value="Mrs. Odirichukwu JC" required>
+                                    <!-- For now Only for two tables are working, Please review how to connect all adviser related logic to also point to adviser table -->
+                              <input type="text"  class="form-control" value="<?php echo get("name","SELECT aa.*, a.* FROM adviser_std AS aa LEFT JOIN adviser AS a ON aa.as_adviser_id = a.adviser_id WHERE aa.as_std_id='".$_SESSION['id']."' and a.status='1'and aa.as_status='1'"); ?>" readonly/>
+
+                              <input type="hidden" name="adviser_id" class="form-control" value="<?php echo get("adviser_id","SELECT aa.*, a.* FROM adviser_std AS aa LEFT JOIN adviser AS a ON aa.as_adviser_id = a.adviser_id WHERE aa.as_std_id='".$_SESSION['id']."' and a.status='1'and aa.as_status='1'"); ?>">
                             </div>
-                            <input type="hidden" name="adviser_id" value="<?php echo get("adviser_id","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" >
-
-
                             <input type="hidden" name="std_id" value="<?php echo get("std_id","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" >
                            <div class="form-group">
                       <label>Message:</label>
@@ -207,7 +211,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                         </div>
                         <div class="modal-footer">
                           <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                          <button type="button" name="send_message_to_adviser" class="btn btn-primary">Send</button></form>
+                          <button type="submit" name="send_message_to_adviser" class="btn btn-primary">Send</button></form>
                         </div>
                       </div>
                     </div>
@@ -338,7 +342,10 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                   <div class="right-column">
                     <?php 
                     $my_did =$_SESSION['id'];
-                     $percount1 = counts("$s personal_feed $w std_read_status='0' and msg_status='1' and std_id='$my_did' ");?>
+                    //  $percount1 = counts("$s personal_feed $w std_read_status='0' and msg_status='1' and std_id='$my_did' ");
+                     $percount1 = counts("SELECT a.*, pf.* FROM adviser_std AS a LEFT JOIN personal_feed AS pf ON a.as_adviser_id = pf.adviser_id $w pf.std_read_status='0' and pf.msg_status='1' and pf.std_id='$my_did' and a.as_std_id='$my_did' order by pf.msg_id desc");
+                     
+                     ?>
                     <div class="badge badge-primary">  <?php echo"$percount1";?> Unread SMS</div><a data-toggle="collapse" data-parent="#daily-feeds" href="#feeds-box" aria-expanded="true" aria-controls="feeds-box"><i class="fa fa-angle-down"></i></a>
                   </div>
                 </div>
