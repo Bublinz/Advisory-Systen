@@ -75,7 +75,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
 
             <?php 
             $std_id = @$_SESSION['id'];
-            $gdetails = counts("SELECT * FROM adviser_std WHERE as_std_id ='$std_id' AND as_status='1'");
+            $gdetails = counts("SELECT * FROM adviser_std WHERE as_std_id ='$std_id'");
             //echo $gdetails;
             if ($gdetails  < 1){
             echo '<center>
@@ -240,7 +240,10 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                     <!-- Item-->
 
                     <?php 
-                    $genfeed =fetch("$s general_feed $w feed_status='1' AND feed_section='2015/2016' order by feed_id desc");
+
+                    // $genfeed =fetch("$s general_feed $w feed_status='1' AND feed_section='2015/2016' order by feed_id desc");
+                                    // Logic that displays the general adviser feed on students feed box
+                    $genfeed =fetch("SELECT a.*, gf.* FROM adviser_std AS a LEFT JOIN general_feed AS gf ON a.as_adviser_id = gf.adviser_id WHERE a.as_std_id = '".$_SESSION['id']."' AND a.as_status = '1' ");
                     if($genfeed<=0){
                        echo" <div  class='card-header d-flex justify-content-between align-items-center'>
                   <center><h2 class='h5 display'>No Feed yet !</h2></center>
@@ -258,7 +261,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                           <p>$g->feed_message</p>
                            ";
 
-
+                          // Feed reminder
                           $feed=$g->feed_id;
                           $std_id= $_SESSION['id'];
                          $check = fetch("$s general_feed_reminder where feed_id=$feed AND std_id='".$_SESSION['id']."' AND rem_status='1' AND std_rem_status='1' ");
@@ -346,8 +349,12 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                       <!-- List-->
 
                       <?php 
+
+                      // Logic that Inputs the Personal feed to students personal feed
+                      // $genfeed =fetch("SELECT a.*, gf.* FROM adviser_std AS a LEFT JOIN general_feed AS gf ON a.as_adviser_id = gf.adviser_id WHERE a.as_std_id = '".$_SESSION['id']."' AND a.as_status = '1' ");
+
                        $my_did =$_SESSION['id']; 
-                      $perfeed = fetch("$s personal_feed $w std_read_status='0' and msg_status='1' and std_id='$my_did' order by msg_id desc");
+                      $perfeed = fetch("SELECT a.*, pf.* FROM adviser_std AS a LEFT JOIN personal_feed AS pf ON a.as_adviser_id = pf.adviser_id $w pf.std_read_status='0' and pf.msg_status='1' and pf.std_id='$my_did' and a.as_std_id='$my_did' order by pf.msg_id desc");
                       if($perfeed<=0){
                         echo" <div  class='card-header d-flex justify-content-between align-items-center'>
                   <center><h2 class='h5 display'>You Have no personal Message !</h2></center>
