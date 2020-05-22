@@ -120,7 +120,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                   <?php 
                   $my_did =$_SESSION['id'];
                   
-                  $percount=counts("$s personal_feed $w msg_status='1' && std_id ='$my_did' ");
+                  $percount=counts("$s personal_feed $w msg_status='1' && std_id ='$my_did' && std_reply_id='0' ");
                   // echo $my_did;
                   ?>
                   <div class="count-number"><?php echo "$percount";?></div>
@@ -159,7 +159,7 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                 <div class="icon"><i class="icon-list"></i></div>
                 <div class="name"><strong class="text-uppercase">Personal Reminder</strong><span>Messages</span>
                 <?php
-                      $prem = counts("$s personal_feed $w msg_status='1' AND std_id='".$_SESSION['id']."' AND std_rem_date !=''");
+                      $prem = counts("$s personal_feed $w msg_status='1' AND std_id='".$_SESSION['id']."' AND std_rem_date !='' AND std_reply_id='0' ");
                       ?>
                   <div class="count-number"><?php echo "$prem";?></div>
                 </div>
@@ -244,10 +244,10 @@ if(udi("$u general_feed_reminder set rem_id='' $w msg_id='$msg_id'")){
                     <!-- Item-->
 
                     <?php 
-
+ 
                     // $genfeed =fetch("$s general_feed $w feed_status='1' AND feed_section='2015/2016' order by feed_id desc");
                                     // Logic that displays the general adviser feed on students feed box
-                    $genfeed =fetch("SELECT a.*, gf.* FROM adviser_std AS a LEFT JOIN general_feed AS gf ON a.as_adviser_id = gf.adviser_id WHERE a.as_std_id = '".$_SESSION['id']."' AND a.as_status = '1' ");
+                    $genfeed =fetch("SELECT a.*, gf.* FROM adviser_std AS a LEFT JOIN general_feed AS gf ON a.as_adviser_id = gf.adviser_id WHERE a.as_std_id = '".$_SESSION['id']."' AND a.as_status = '1' order by gf.feed_id desc ");
                     if($genfeed<=0){
                        echo" <div  class='card-header d-flex justify-content-between align-items-center'>
                   <center><h2 class='h5 display'>No Feed yet !</h2></center>
@@ -478,7 +478,7 @@ if(isset($_POST['read'])){
                 </div>
 
                 <?php 
-                  $act = fetch("$s actiivities $w act_status='1'");
+                  $act = fetch("$s actiivities $w act_status='1' order by act_id DESC");
 
                   if ($act<=0) {
                    echo" <div  class='card-header d-flex justify-content-between align-items-center'>

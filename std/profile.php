@@ -16,6 +16,9 @@
         <div class="container-fluid">
           <!-- Page Header-->
           <header> 
+          <center><p style="font-size: 17px; color: red;">
+      Hello, Please ignore any profile update for now. We are here to serve you better. <i class="fa fa-book"></i>Developer's Desk
+      </p></center>
             <h1 class="h3 display">Update your Profile</h1>
           </header>
           <div class="row">
@@ -129,7 +132,7 @@
                   <div class="form-group">
                       <label>Department</label>
                         <select name="dept" class="form-control" required>
-                          <option value="dept" ><?php echo get("dept","$s students_data $w std_id='".$_SESSION['id']."'"); ?></option>
+                          <option value="<?php echo get("dept","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" ><?php echo get("dept","$s students_data $w std_id='".$_SESSION['id']."'"); ?></option>
                           <option value="Computer Science" >Computer Science</option>
                           <option  value="Cyber Security">Cyber Security</option>
                           <option value="Software Engineering" >Software Engineering</option>
@@ -140,11 +143,44 @@
                       <label>State of Origin</label>
                       <select name="state" class="form-control" required >
                         <option value="<?php echo get("state","$s students_data $w std_id='".$_SESSION['id']."'"); ?>" ><?php echo get("state","$s students_data $w std_id='".$_SESSION['id']."'"); ?></option>
-                          <option  value="Abia" >Abia</option>
-                          <option value="Imo" >Imo</option>
-                          <option value="Anambra">Anambra</option>
-                          <option value="Enugu">Enugu</option>
-                          <option value="" ></option>
+                        <option disabled selected>--Select State--</option>
+    <option value="Abia">Abia</option>
+    <option value="Adamawa">Adamawa</option>
+    <option value="Akwa Ibom">Akwa Ibom</option>
+    <option value="Anambra">Anambra</option>
+    <option value="Bauchi">Bauchi</option>
+    <option value="Bayelsa">Bayelsa</option>
+    <option value="Benue">Benue</option>
+    <option value="Borno">Borno</option>
+    <option value="Cross Rive">Cross River</option>
+    <option value="Delta">Delta</option>
+    <option value="Ebonyi">Ebonyi</option>
+    <option value="Edo">Edo</option>
+    <option value="Ekiti">Ekiti</option>
+    <option value="Enugu">Enugu</option>
+    <option value="FCT">Federal Capital Territory</option>
+    <option value="Gombe">Gombe</option>
+    <option value="Imo">Imo</option>
+    <option value="Jigawa">Jigawa</option>
+    <option value="Kaduna">Kaduna</option>
+    <option value="Kano">Kano</option>
+    <option value="Katsina">Katsina</option>
+    <option value="Kebbi">Kebbi</option>
+    <option value="Kogi">Kogi</option>
+    <option value="Kwara">Kwara</option>
+    <option value="Lagos">Lagos</option>
+    <option value="Nasarawa">Nasarawa</option>
+    <option value="Niger">Niger</option>
+    <option value="Ogun">Ogun</option>
+    <option value="Ondo">Ondo</option>
+    <option value="Osun">Osun</option>
+    <option value="Oyo">Oyo</option>
+    <option value="Plateau">Plateau</option>
+    <option value="Rivers">Rivers</option>
+    <option value="Sokoto">Sokoto</option>
+    <option value="Taraba">Taraba</option>
+    <option value="Yobe">Yobe</option>
+    <option value="Zamfara">Zamfara</option>
                         </select>
                     </div>
 

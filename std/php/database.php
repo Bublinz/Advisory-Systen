@@ -1,7 +1,7 @@
 
 <?php  
  
-$conn = mysqli_connect("localhost","root","","courseadmensys");
+$conn = mysqli_connect("localhost","root","","u519554690_advisory");
 $s = "SELECT * FROM ";
 $se = " SET ";
 $o = " or ";

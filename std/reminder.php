@@ -84,7 +84,7 @@
                       </thead>
                       <tbody>
                       <?php
-                      $prem = fetch("$s personal_feed $w msg_status='1' AND std_id='".$_SESSION['id']."' AND std_rem_date !=''ORDER BY msg_id DESC");
+                      $prem = fetch("$s personal_feed $w msg_status='1' AND std_id='".$_SESSION['id']."' AND std_rem_date !='' AND std_reply_id ='0' ORDER BY msg_id DESC");
                       if ($prem<=0){
                         echo "<tr ><td colspan='5' style='text-align:center;'>No Message in your reminder yet!</td></tr>";
                       }else{

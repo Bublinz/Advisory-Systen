@@ -1,3 +1,5 @@
+ 
+ 
  <body>
     <!-- Side Navbar -->
     <nav class="side-navbar">
@@ -35,7 +37,9 @@
               <div class="badge badge-info">Messages</div></a></a></li>
             <li> <a href="isms.php"> <i class="fa fa-male"> </i>Individual
                 <div class="badge badge-info">Messages</div></a></li>
-            
+                <!-- <li> <a href="newchat.php"> <i class="fa fa-male"> </i>New -->
+                <div class="badge badge-info">Messages</div></a></li>
+
             <li> <a href="more.php"> <i class="fa fa-book"> </i>More</a></li>
           </ul>
         </div>

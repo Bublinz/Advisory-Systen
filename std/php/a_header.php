@@ -144,8 +144,5 @@
           </div>
         </nav>
       </header>
-      <marquee><p style="font-size: 17px; color: red;"> <i class="fa fa-home"></i>
-      Greetings to you, this system is under serious monitoring, 
-       hence some features will not be functional. Meanwhile, we hope to be active with all features by 6pm today for better experience. <i class="fa fa-book"></i>Developer's Desk
-      </p></marquee>
+     
  <?php require_once 'php/controller.php'; ?>
