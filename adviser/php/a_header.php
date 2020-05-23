@@ -14,7 +14,7 @@
             <h2 class="h5"> <?php echo get("name","$s adviser $w adviser_id='".$_SESSION['id']."'"); ?></h2><span> </span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="dash.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="index.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
@@ -38,7 +38,7 @@
             <li> <a href="isms.php"> <i class="fa fa-male"> </i>Individual
                 <div class="badge badge-info">Messages</div></a></li>
                 <!-- <li> <a href="newchat.php"> <i class="fa fa-male"> </i>New -->
-                <div class="badge badge-info">Messages</div></a></li>
+                <!-- <div class="badge badge-info">Messages</div></a></li> -->
 
             <li> <a href="more.php"> <i class="fa fa-book"> </i>More</a></li>
           </ul>
@@ -66,7 +66,7 @@
                   <div class="brand-text d-none d-md-inline-block"><span>Adviser </span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Notifications dropdown-->
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+                <!-- <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item"> 
                         <div class="notification d-flex justify-content-between">
@@ -90,29 +90,62 @@
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications                                            </strong></a></li>
                   </ul>
-                </li>
+                </li> -->
                 <!-- Messages dropdown-->
+                <?php 
+                 $note =counts("SELECT * FROM personal_feed WHERE adviser_id = '".$_SESSION['id']."' AND adviser_read_status = '1'  order by msg_id DESC");
+                 
+                 ?>
+                  <?php
+                       if($note < 1){
+
+                        echo '<li class="av-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">0</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                                      
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>No new messag for you</strong></a></li>
+                  </ul>
+                </li>';
+                       }
+                       else{
+
+                       
+                        echo "<li class='nav-item dropdown'> <a id='messages' rel='nofollow' data-target='#' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='nav-link'><i class='fa fa-envelope'></i><span class='badge badge-info'>$note</span></a>
+                        <ul aria-labelledby='notifications' class='dropdown-menu'>
+                        ";
+                        $allnote = fetch("SELECT a.*, pf.* FROM personal_feed AS pf LEFT JOIN students_data AS a ON a.std_id = pf.std_id WHERE pf.adviser_id = '".$_SESSION['id']."' AND pf.adviser_read_status = '1'  order by a.surname");
+                        foreach($allnote as $n){
+                         echo " <li><a rel='nofollow' href='#' class='dropdown-item d-flex'> 
+                              <div class='msg-profile'> <img src='img/empty.PNG' alt='...' class='img-fluid rounded-circle'></div>
+                              <div class='msg-body'>
+                              <form method='post' action='isms.php#sms'>
+                              <input type='hidden' value='$n->std_id' name='std_id'> 
+                                <h3 class='h5'>$n->other_names</h3><span>$n->reg_no</span><small>$n->sent_date <button class='js-click' type='submit' name='next'><i class='fa fa-hand-pointer-o '></i> Open</button></small></form>
+                                
+                              </div></a></li>";}
+                         
+                          echo "  </ul></li>";
+
+                      
+                       }
+                       
+                       ?>
+
+<!--                 
                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="img/empty.PNG" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
+                          
                         </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="msg-body">
-                          <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="msg-body">
-                          <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
-                        </div></a></li>
+                   
                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
                   </ul>
-                </li>
-             
+                </li> -->
+            <?php
+
+            ?>
                 <!-- Log out-->
                 <li class="nav-item"><a  href="php/test.php" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>

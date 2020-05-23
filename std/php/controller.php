@@ -221,7 +221,7 @@ if(isset($_POST['send_message_to_adviser'])){
 	$std_id = filters('std_id'); 
 	$adviser_id = filters('adviser_id');
 	 $chat_message = filters('chat_message');
-	if(udi("$i personal_feed values('','$chat_message','$std_id','$adviser_id',CURDATE(),'Nil','Nil','1','1','$std_id','0') ")){
+	if(udi("$i personal_feed values('','$chat_message','$std_id','$adviser_id',CURDATE(),'Nil','Nil','1','1','$std_id','1') ")){
 		$success="Message sent!";
 	} else { 
 		$error1="Message not sent!";

@@ -25,11 +25,11 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<!DOCTYPE html><html class=''>
-<head>
+<!-- <!DOCTYPE html><html class=''>
+<head> -->
 <!-- <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script> -->
 
-<meta charset='UTF-8'><meta name="robots" content="noindex">
+<!-- <meta charset='UTF-8'><meta name="robots" content="noindex"> -->
 
 <link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
@@ -707,9 +707,9 @@ body {
 #frame .content .message-input .wrap button:focus {
   outline: none;
 }
-</style></head>
- 
-<body>
+</style>
+
+<!-- </head><body> -->
 <div class="container">
 <!-- <h3 class=" text-center">Messaging</h3> -->
 
@@ -737,7 +737,7 @@ body {
 				</div>
 			</div>
 		</div>
-		
+		 
         <!-- Logic to pull students records for chat by adviser -->
         <?php 
               // display only students adviser is in charge of
@@ -756,12 +756,7 @@ body {
 			<input type="text" placeholder="Search contacts..." style="border-bottom: 2px solid white;" />
         </div>';
         }?>
-
-
-
-
-
-
+<!-- For when the contact list is filled with students -->
         <div id="contacts">
 			<ul>
             <?php 
@@ -784,7 +779,7 @@ body {
             <div class='wrap'>
             <form method='post'>
             
-            <button style='background-color:rgb(44,62,80); border:none;' type='submit' name='next'>	<img src='img/empty.png' alt='' /></button>
+            <button style='background-color:rgb(44,62,80); border:none;' type='submit' name='next'>	<img src='img/empty.PNG' alt='' /></button>
             <input type='hidden' value='$r->std_id' name='std_id'>       
                 <div class='meta'>
                     <p class='name'><button style='background-color:rgb(50,70,90);color:white; border:none;' type='submit' name='next'>$r->surname, $r->other_names </button></p>
@@ -828,8 +823,11 @@ body {
                 <?php
                 if(isset($_POST['next'])){ 
                  $std_id = filters('std_id');
+                 udi("$u personal_feed set adviser_read_status='0' $w std_id = '$std_id' AND adviser_id='".$_SESSION['id']."'");
                 $showcount = counts("SELECT s.*, f.* FROM students_data as s LEFT JOIN personal_feed as f ON f.std_id = s.std_id $w f.msg_status='1' AND s.std_id ='$std_id' AND f.adviser_id='".$_SESSION['id']."' ");
                 $showcount2 = counts("SELECT *  FROM personal_feed $w msg_status='1' AND std_id ='$std_id' AND adviser_id='".$_SESSION['id']."' AND std_reply_id='$std_id' ");
+
+
                 ?>
 
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
@@ -851,6 +849,8 @@ body {
                     $show3 = fetch("SELECT f.*, sr.* FROM personal_feed as f LEFT JOIN student_reply as sr ON f.adviser_id = sr.sr_adviser_id WHERE f.std_id ='$std_id' OR sr.sr_std_id ='$std_id' AND sr_adviser_id='".$_SESSION['id']."' AND f.msg_status = '1' AND sr_status='1' ORDER BY f.sent_date");
 
                      $show2 = fetch("SELECT *  FROM personal_feed $w msg_status='1' AND std_id ='$std_id' AND adviser_id='".$_SESSION['id']."' order by msg_id");
+
+                    
 
                     // Iteration logic
                       foreach($show2 as $r){
@@ -884,7 +884,7 @@ body {
             
             <textarea name='sms' placeholder='write your message...' ></textarea>
 			<input type='hidden'  name ='std_id' value='$std_id' >
-            <button type='submit' class='submit'  name='new_sms' ><i class='fa fa-paper-plane' aria-hidden='true'></i></button>
+            <button type='submit'  name='new_sms' ><i class='fa fa-paper-plane' aria-hidden='true'></i></button>
             
 			</div></form>
 		</div>
@@ -907,7 +907,7 @@ body {
       }else{
         echo "something went wrong";
       }
-    // echo "<input type='text'  name='std_id' value='$std' />";
+   // echo "<input type='text'  name='std_id' value='$std' />";
     }
     ?>
 
@@ -979,4 +979,4 @@ $(window).on('keydown', function(e) {
 });
 //# sourceURL=pen.js
 </script>
-</body></html>
+<?php require_once('php/a_footer.php');?>
